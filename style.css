@@ -2926,38 +2926,6 @@ a {
     transition: color 0.25s ease;
 }
 
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-    background: rgba(9, 9, 9, 0.82);
-    border-bottom: 1px solid var(--border);
-}
-
-.logo span,
-.footer-logo span {
-    color: var(--primary);
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary);
-}
-
-.icon-btn,
-.menu-btn {
-    background: var(--surface);
-    color: var(--text);
-    border-color: var(--border);
-}
-
-.icon-btn:hover,
-.menu-btn:hover {
-    color: var(--primary);
-    border-color: var(--primary);
-    background: var(--surface-hover);
-}
 
 /* =========================
    HERO
