@@ -2736,29 +2736,17 @@ body.light-mode .locked-card {
 
     .hero-container {
         grid-template-columns: 1fr;
-
         text-align: center;
-
         padding-top: 50px;
+        width: 100%;
     }
 
     .hero-content {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
-
-    .hero-buttons {
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 8px;
-}
-
-.hero-buttons .btn {
-    padding: 10px 12px;
-    font-size: 13px;
-    white-space: nowrap;
-}
 
     .hero-visual {
         display: none;
