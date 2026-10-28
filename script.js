@@ -239,7 +239,7 @@ if (contactForm) {
         const message = document.getElementById("message").value.trim();
 
         const recipient = "devendranandurkar12@gmail.com";
-        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const body = `Name: ${name}\n\n${message}`;
 
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isAppleMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
