@@ -2765,8 +2765,8 @@ body.light-mode .locked-card {
 }
 
 .profile-card {
-    display: grid !important;
-    position: center;
+    display: flex !important;
+    position: relative;
     width: 280px;
     height: 280px;
     flex-shrink: 0;
