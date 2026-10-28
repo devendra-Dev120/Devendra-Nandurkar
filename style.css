@@ -4340,76 +4340,64 @@ body.light-mode ::selection {
     color: #211B10;
 }
 
-
-/* ==============================
-   FORCE PROFILE CARD ON MOBILE
-============================== */
-
+/* SHOW PROFILE CARD ON MOBILE ONLY */
 @media screen and (max-width: 850px) {
-    .hero-container {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-        width: 90%;
-    }
-
     .hero-visual {
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
-        position: relative !important;
-        width: 100% !important;
-        min-height: 280px;
-        justify-content: center !important;
-        align-items: center !important;
-        margin: 30px auto 50px !important;
-        overflow: visible !important;
+        position: relative;
+        width: 100%;
+        min-height: 300px;
+        justify-content: center;
+        align-items: center;
+        margin: 30px auto 40px;
+        overflow: visible;
     }
 
     .profile-card {
         display: grid !important;
-        position: relative !important;
-        width: min(280px, 75vw) !important;
-        height: min(280px, 75vw) !important;
-        margin: 0 auto !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative;
+        width: 280px;
+        height: 280px;
         flex-shrink: 0;
+        margin: 0 auto;
     }
 
     .profile-circle {
-        width: 150px !important;
-        height: 150px !important;
-        font-size: 4rem !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 150px;
+        height: 150px;
     }
 
     .card-python {
-        top: 15px !important;
-        left: -10px !important;
+        top: 15px;
+        left: -5px;
     }
 
     .card-sql {
-        bottom: 20px !important;
-        right: -10px !important;
+        bottom: 20px;
+        right: -5px;
     }
 
     .card-data {
-        top: 45% !important;
-        right: -15px !important;
+        top: 45%;
+        right: -10px;
     }
 }
 
 @media screen and (max-width: 380px) {
     .profile-card {
-        width: 240px !important;
-        height: 240px !important;
+        width: 240px;
+        height: 240px;
     }
 
     .profile-circle {
-        width: 125px !important;
-        height: 125px !important;
-        font-size: 3.5rem !important;
-    }
-
-    .floating-card {
-        padding: 8px 10px !important;
-        font-size: 0.75rem !important;
+        width: 125px;
+        height: 125px;
     }
 }
