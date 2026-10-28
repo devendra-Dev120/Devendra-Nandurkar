@@ -211,6 +211,7 @@ viewMoreBtn.addEventListener("click", function () {
         ?.classList.toggle("fa-chevron-up", !isExpanded);
 });
 
+
 /* =========================
    CONTACT FORM
 ========================= */
@@ -229,37 +230,41 @@ if (contactForm) {
         const message = document.getElementById("message").value.trim();
 
         const recipient = "devendranandurkar12@gmail.com";
-        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+
+        const body =
+            `Name: ${name}\n` +
+            `Email: ${email}\n\n` +
+            `${message}`;
+
+        const gmailParams = new URLSearchParams({
+            to: recipient,
+            su: subject,
+            body: body
+        });
 
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isAppleMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         if (isAndroid) {
             const intentUrl =
-                "intent://compose?to=" + encodeURIComponent(recipient) +
-                "&subject=" + encodeURIComponent(subject) +
-                "&body=" + encodeURIComponent(body) +
+                "intent://compose?" + gmailParams.toString() +
                 "#Intent;scheme=mailto;package=com.google.android.gm;end";
 
             window.location.href = intentUrl;
+
         } else if (isAppleMobile) {
             const gmailUrl =
-                "googlegmail://co?to=" + encodeURIComponent(recipient) +
-                "&subject=" + encodeURIComponent(subject) +
-                "&body=" + encodeURIComponent(body);
+                "googlegmail://co?" + gmailParams.toString();
 
             window.location.href = gmailUrl;
-        } else {
-            const params = new URLSearchParams({
-                view: "cm",
-                fs: "1",
-                to: recipient,
-                su: subject,
-                body: body
-            });
 
-            window.location.href =
-                "https://mail.google.com/mail/?" + params.toString();
+        } else {
+            const gmailWebUrl =
+                "https://mail.google.com/mail/?view=cm&fs=1&" +
+                gmailParams.toString();
+
+            window.location.href = gmailWebUrl;
         }
     });
 }
+
