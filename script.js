@@ -233,49 +233,43 @@ if (contactForm) {
 
         if (!contactForm.reportValidity()) return;
 
-        const name = document.getElementById("name")?.value.trim() || "";
-        const email = document.getElementById("email")?.value.trim() || "";
-        const subject = document.getElementById("subject")?.value.trim() || "";
-        const message = document.getElementById("message")?.value.trim() || "";
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
 
         const recipient = "devendranandurkar12@gmail.com";
-
-        const body =
-            `Name: ${name}\n` +
-            `Email: ${email}\n\n` +
-            message;
-
-        const params = new URLSearchParams({
-            to: recipient,
-            subject: subject,
-            body: body
-        });
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
 
         const isAndroid = /Android/i.test(navigator.userAgent);
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAppleMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         if (isAndroid) {
-            // Request Gmail on Android
-            window.location.href =
-                "intent://compose?" + params.toString() +
-                "#Intent;scheme=mailto;" +
-                "package=com.google.android.gm;" +
-                "action=android.intent.action.SENDTO;end";
+            const intentUrl =
+                "intent://compose?to=" + encodeURIComponent(recipient) +
+                "&subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body) +
+                "#Intent;scheme=mailto;package=com.google.android.gm;end";
 
-        } else if (isIOS) {
-            // Request the Gmail app on Apple devices
-            window.location.href =
-                "googlegmail://co?" + params.toString();
+            window.location.href = intentUrl;
+        } else if (isAppleMobile) {
+            const gmailUrl =
+                "googlegmail://co?to=" + encodeURIComponent(recipient) +
+                "&subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
 
+            window.location.href = gmailUrl;
         } else {
-            // Open Gmail in the desktop browser
+            const params = new URLSearchParams({
+                view: "cm",
+                fs: "1",
+                to: recipient,
+                su: subject,
+                body: body
+            });
+
             window.location.href =
-                "https://mail.google.com/mail/?view=cm&fs=1&" +
-                new URLSearchParams({
-                    to: recipient,
-                    su: subject,
-                    body: body
-                }).toString();
+                "https://mail.google.com/mail/?" + params.toString();
         }
     });
 }
