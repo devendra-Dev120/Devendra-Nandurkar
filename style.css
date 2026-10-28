@@ -2741,6 +2741,10 @@ body.light-mode .locked-card {
         width: 100%;
     }
 
+    .container {
+        width: 96%;
+    }
+
     .hero-content {
         display: flex;
         flex-direction: column;
