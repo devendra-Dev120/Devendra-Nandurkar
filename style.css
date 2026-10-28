@@ -50,7 +50,7 @@ button {
 ========================= */
 
 .container {
-    width: min(1500px, 90%);
+    width: min(1450px, 90%);
     margin: auto;
 }
 
@@ -2742,7 +2742,7 @@ body.light-mode .locked-card {
     }
 
     .container {
-        width: 100%;
+        width: 96%;
     }
 
     .hero-content {
