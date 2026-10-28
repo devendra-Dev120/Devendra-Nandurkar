@@ -2748,6 +2748,18 @@ body.light-mode .locked-card {
         align-items: center;
     }
 
+    .hero-buttons {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.hero-buttons .btn {
+    padding: 10px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
     .hero-visual {
         display: none;
     }
