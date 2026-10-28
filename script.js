@@ -125,41 +125,43 @@ function getSkillsSection() {
     return document.getElementById("skills");
 }
 
-function updateActiveNavigation() {
-    let current = "home";
 
-    const sectionIds = [
+function updateActiveNavigation() {
+    const sections = [
         "home",
         "about",
         "skills",
         "projects",
         "certificates",
         "contact"
-    ];
+    ]
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
 
-    for (const id of sectionIds) {
-        const section = document.getElementById(id);
+    const marker = 180;
+    let current = "home";
 
-        if (!section) continue;
+    for (const section of sections) {
+        const rect = section.getBoundingClientRect();
 
-        if (section.getBoundingClientRect().top <= 180) {
-            current = id;
+        if (rect.top <= marker && rect.bottom > marker) {
+            current = section.id;
+            break;
+        }
+
+        if (rect.top <= marker) {
+            current = section.id;
         }
     }
 
     navLinks.forEach(link => {
-        link.classList.remove("active");
-
-        const href = link.getAttribute("href");
-
-        if (
-            href === "#" + current ||
-            (current === "skills-mobile" && href === "#skills")
-        ) {
-            link.classList.add("active");
-        }
+        link.classList.toggle(
+            "active",
+            link.getAttribute("href") === `#${current}`
+        );
     });
 }
+
 
 /* Navigate to the correct Skills section */
 navLinks.forEach(link => {
