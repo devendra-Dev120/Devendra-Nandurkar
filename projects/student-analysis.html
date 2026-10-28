@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Analysis System | Devendra Nandurkar</title>
+
+    <meta name="description" content="Student Performance Analysis System — an upcoming data analytics project by Devendra Nandurkar.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --background: #090909;
+            --card: #151514;
+            --gold: #C9A96E;
+            --gold-light: #DCC18B;
+            --text: #F5F0E8;
+            --muted: #B9B4AC;
+            --border: rgba(201, 169, 110, 0.22);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(201, 169, 110, 0.09),
+                    transparent 42%
+                ),
+                var(--background);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            background: rgba(9, 9, 9, 0.8);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: auto;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            color: var(--gold);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .brand span {
+            color: var(--gold);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            transition: color 0.25s;
+        }
+
+        .back-link:hover {
+            color: var(--gold-light);
+        }
+
+        .main {
+            flex: 1;
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            padding: 85px 6% 75px;
+            text-align: center;
+        }
+
+        .project-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.7rem;
+            color: var(--gold);
+            background: linear-gradient(
+                145deg,
+                #211E17,
+                #111110
+            );
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 15px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            background: rgba(201, 169, 110, 0.07);
+            color: var(--gold-light);
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 12px rgba(201, 169, 110, 0.65);
+        }
+
+        h1 {
+            max-width: 800px;
+            margin: 0 auto 22px;
+            font-size: clamp(2.2rem, 6vw, 4.4rem);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            font-weight: 800;
+        }
+
+        h1 span {
+            color: var(--gold);
+        }
+
+        .description {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .divider {
+            width: 70px;
+            height: 2px;
+            margin: 38px auto;
+            background: var(--gold);
+        }
+
+        .features-heading {
+            margin-bottom: 22px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .features {
+            max-width: 760px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            text-align: left;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 19px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(21, 21, 20, 0.75);
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .feature i {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        .tech-section {
+            margin-top: 35px;
+        }
+
+        .tech-label {
+            margin-bottom: 16px;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            padding: 9px 14px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: rgba(201, 169, 110, 0.06);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 38px;
+        }
+
+        .button {
+            min-height: 48px;
+            padding: 14px 22px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.25s;
+        }
+
+        .button.primary {
+            background: var(--gold);
+            color: #211B10;
+        }
+
+        .button.primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .button.secondary {
+            color: var(--gold-light);
+            background: transparent;
+        }
+
+        .button.secondary:hover {
+            background: rgba(201, 169, 110, 0.09);
+            transform: translateY(-2px);
+        }
+
+        .note {
+            margin-top: 27px;
+            color: #827C72;
+            font-size: 0.8rem;
+            line-height: 1.7;
+        }
+
+        footer {
+            padding: 24px 6%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: #827C72;
+            font-size: 0.8rem;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        @media (max-width: 600px) {
+            .nav-inner {
+                padding: 19px 5%;
+            }
+
+            .brand {
+                font-size: 0.9rem;
+            }
+
+            .back-link {
+                font-size: 0.78rem;
+            }
+
+            .main {
+                padding: 65px 5% 60px;
+            }
+
+            .project-icon {
+                width: 82px;
+                height: 82px;
+                font-size: 2.2rem;
+                border-radius: 21px;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            .description {
+                font-size: 0.92rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                padding: 16px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+            
+        }
+        
+/* =========================
+   SHARED LIGHT MODE
+========================= */
+
+html.light-mode {
+    --background: #F7F5F0;
+    --card: #FFFFFF;
+    --gold: #8A6B35;
+    --gold-light: #765A2D;
+    --text: #292720;
+    --muted: #625D54;
+    --border: rgba(138, 107, 53, 0.25);
+}
+
+html.light-mode body {
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(201, 169, 110, 0.10),
+            transparent 42%
+        ),
+        var(--background);
+    color: var(--text);
+}
+
+html.light-mode .project-nav,
+html.light-mode .navbar {
+    background: rgba(247, 245, 240, 0.96);
+    border-bottom: 1px solid var(--border);
+}
+
+html.light-mode .project-icon {
+    background: linear-gradient(145deg, #FFFFFF, #F2EADB);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+}
+
+html.light-mode .status {
+    background: #F2EADB;
+    color: #765A2D;
+}
+
+html.light-mode .feature {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--muted);
+}
+
+html.light-mode .feature i,
+html.light-mode .brand,
+html.light-mode .brand span,
+html.light-mode h1 span,
+html.light-mode footer span {
+    color: var(--gold);
+}
+
+html.light-mode .tech-tag {
+    background: #F2EADB;
+    color: #6D542B;
+}
+
+html.light-mode .button.primary {
+    background: #C9A96E;
+    color: #211B10;
+}
+
+html.light-mode .button.primary:hover {
+    background: #DCC18B;
+}
+
+html.light-mode .button.secondary {
+    background: #FFFFFF;
+    color: #765A2D;
+}
+
+html.light-mode .button.secondary:hover {
+    background: #F2EADB;
+}
+
+html.light-mode .note,
+html.light-mode .project-footer,
+html.light-mode footer {
+    color: #625D54;
+}
+
+html.light-mode .project-footer,
+html.light-mode footer {
+    border-top-color: var(--border);
+}
+
+    </style>
+    <script>
+    const savedTheme = localStorage.getItem("sujal-theme");
+
+    if (savedTheme === "light") {
+        document.documentElement.classList.add("light-mode");
+    } else {
+        document.documentElement.classList.remove("light-mode");
+    }
+</script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="project-nav">
+        <div class="project-container nav-inner">
+            <a class="back-link" href="../index.html#projects">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Projects
+            </a>
+
+            <a class="brand">
+                <i class="fa-solid fa-code"></i>
+                Devendra
+            </a>
+
+            
+        </div>
+    </nav>
+
+    <main class="main">
+
+        <div class="project-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            In Development
+        </div>
+
+        <h1>
+            Student Performance
+            <span>Analysis System</span>
+        </h1>
+
+        <p class="description">
+            An upcoming data analytics project focused on exploring
+            student academic performance, identifying trends, and
+            turning educational data into meaningful insights.
+            This project is currently in development.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2 class="features-heading">Planned Project Features</h2>
+
+        <div class="features">
+
+            <div class="feature">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Academic performance analysis</span>
+            </div>
+
+            <div class="feature">
+                <i class="fa-solid fa-users"></i>
+                <span>Student-wise performance comparison</span>
+            </div>
+
+            <div class="feature">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span>Performance trends and patterns</span>
+            </div>
+
+            <div class="feature">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Visual reports and dashboards</span>
+            </div>
+
+        </div>
+
+        <div class="tech-section">
+            <p class="tech-label">Planned Technologies</p>
+
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Tableau / Power BI</span>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a class="button primary" href="../index.html#projects">
+                <i class="fa-solid fa-folder-open"></i>
+                Explore My Projects
+            </a>
+
+            <a  class="button secondary" href="../index.html#contact">
+                <i class="fa-regular fa-envelope"></i>
+                Contact Me
+            </a>
+        </div>
+
+        <p class="note">
+            The features and technologies listed above are planned
+            and may change as the project develops.
+        </p>
+
+    </main>
+
+<footer class="project-footer">
+        <div class="project-container">
+            © <span id="currentYear"></span> Devendra.
+            Built with care.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

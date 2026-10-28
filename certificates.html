@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificates | Devendra Nandurkar</title>
+
+    <!-- Reuse your portfolio stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+          <style>
+        :root {
+            --gold: #C9A96E;
+            --gold-light: #DCC18B;
+            --page-bg: #090909;
+            --card-bg: #151514;
+            --text-main: #F5F0E8;
+            --text-muted: #B9B4AC;
+            --line: rgba(201, 169, 110, 0.23);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-container {
+            width: min(1420px, 90%);
+            margin: auto;
+        }
+
+        .project-nav {
+            border-bottom: 1px solid var(--line);
+            padding: 20px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand {
+            color: var(--gold);
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .back-link {
+            color: var(--text-muted);
+            transition: color 0.25s;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .project-hero {
+            padding: 75px 0 55px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin: 0 0 22px;
+        }
+
+        h1 span,
+        h2 span {
+            color: var(--gold);
+        }
+
+        .hero-description {
+            max-width: 760px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 26px 0;
+        }
+
+        .tech-tag {
+            border: 1px solid var(--line);
+            color: var(--gold-light);
+            background: rgba(201, 169, 110, 0.07);
+            padding: 7px 14px;
+            border-radius: 5px;
+            font-size: 0.88rem;
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .project-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .project-btn.primary {
+            color: #090909;
+            background: var(--gold);
+        }
+
+        .project-btn.primary:hover {
+            background: var(--gold-light);
+        }
+
+        .project-btn.secondary {
+            color: var(--gold);
+            background: transparent;
+        }
+
+        .project-btn.secondary:hover {
+            background: rgba(201, 169, 110, 0.1);
+        }
+
+        .section {
+            padding: 42px 0;
+        }
+
+        .section-description {
+            color: var(--text-muted);
+            max-width: 800px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .info-card {
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+
+        .info-card i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--card-bg);
+        }
+
+        .feature-item i {
+            color: var(--gold);
+            margin-top: 5px;
+        }
+
+        .feature-item span {
+            color: var(--text-muted);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .gallery-card {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--card-bg);
+        }
+
+        .gallery-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top;
+            background: #20201e;
+            transition: transform 0.35s;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.025);
+        }
+
+        .gallery-caption {
+            padding: 16px;
+            color: var(--text-muted);
+        }
+
+        .gallery-caption h3 {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin: 0 0 5px;
+        }
+
+        .learning-box {
+            background: var(--card-bg);
+            border-left: 3px solid var(--gold);
+            border-radius: 5px;
+            padding: 25px;
+            color: var(--text-muted);
+        }
+
+        .closing-section {
+            margin: 40px 0 70px;
+            padding: 35px;
+            text-align: center;
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+        }
+
+        .closing-section p {
+            color: var(--text-muted);
+        }
+
+        .project-footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--line);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .project-footer span {
+            color: var(--gold);
+        }
+
+        @media (max-width: 700px) {
+            .project-hero {
+                padding-top: 50px;
+            }
+
+            .overview-grid,
+            .feature-list,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .closing-section {
+                padding: 24px 18px;
+            }
+
+            .nav-inner {
+                align-items: flex-start;
+            }
+
+            .back-link {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        
+    </style>
+<script>
+    const savedTheme = localStorage.getItem("sujal-theme");
+
+    if (savedTheme === "light") {
+        document.documentElement.classList.add("light-mode");
+    } else {
+        document.documentElement.classList.remove("light-mode");
+    }
+</script>
+</head>
+
+<body>
+    
+    <script>
+    document.body.classList.toggle(
+        "light-mode",
+        localStorage.getItem("sujal-theme") === "light"
+    );
+</script>
+
+    <!-- Navigation -->
+    <nav class="project-nav">
+        <div class="project-container nav-inner">
+            <a class="back-link" href="../index.html#projects">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Projects
+            </a>
+
+            <a class="brand">
+                <i class="fa-solid fa-code"></i>
+                Devendra
+            </a>
+
+            
+        </div>
+    </nav>
+
+    <!-- Certificates -->
+    <section class="certificates-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-label">LEARNING JOURNEY</p>
+
+                <h1>My <span>Certificates</span></h1>
+
+                <p>
+                    Courses and certifications completed as I develop
+                    my technical and data analytics skills.
+                </p>
+            </div>
+
+            <div class="all-certificates">
+
+                <!-- Certificate 1 -->
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                        <a href="assets/certificates/python-data-analysis.jpg"
+                           target="_blank"
+                           class="certificate-image-link">
+
+                            <img
+                                src="assets/certificates/python-data-analysis.jpg"
+                                alt="Python for Data Analysis certificate">
+
+                            <div class="certificate-image-overlay">
+                                <span>
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Certificate
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="certificate-content">
+
+                        <span class="certificate-status">COMPLETED</span>
+
+                        <h3>Python for Data Analysis</h3>
+
+                        <p class="certificate-issuer">
+                            <i class="fa-solid fa-award"></i>
+                            Simplilearn SkillUp
+                        </p>
+
+                        <p class="certificate-description">
+                            Successfully completed the Python for Data
+                            Analysis course, developing practical
+                            knowledge of Python for data analysis.
+                        </p>
+
+                        <div class="certificate-details">
+                            <div>
+                                <span>Completed</span>
+                                <strong>29 August 2026</strong>
+                            </div>
+
+                            <div>
+                                <span>Certificate</span>
+                                <strong>Completion</strong>
+                            </div>
+                        </div>
+
+                        <a href="assets/certificates/python-data-analysis.jpg"
+                           target="_blank"
+                           class="certificate-btn">
+                            <i class="fa-solid fa-eye"></i>
+                            View Certificate
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                        <a href="assets/certificates/data-analyst-101.jpg"
+                           target="_blank"
+                           class="certificate-image-link">
+
+                            <img
+                                src="assets/certificates/data-analyst-101.jpg"
+                                alt="Data Analyst 101 certificate">
+
+                            <div class="certificate-image-overlay">
+                                <span>
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Certificate
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="certificate-content">
+
+                        <span class="certificate-status">COMPLETED</span>
+
+                        <h3>Data Analyst 101</h3>
+
+                        <p class="certificate-issuer">
+                            <i class="fa-solid fa-award"></i>
+                            Simplilearn SkillUp
+                        </p>
+
+                        <p class="certificate-description">
+                            Successfully completed the Data Analyst 101
+                            online course through Simplilearn SkillUp,
+                            building foundational knowledge of
+                            data analytics.
+                        </p>
+
+                        <div class="certificate-details">
+                            <div>
+                                <span>Completed</span>
+                                <strong>24 September 2026</strong>
+                            </div>
+
+                            <div>
+                                <span>Certificate</span>
+                                <strong>Completion</strong>
+                            </div>
+                        </div>
+
+                        <a href="assets/certificates/data-analyst-101.jpg"
+                           target="_blank"
+                           class="certificate-btn">
+                            <i class="fa-solid fa-eye"></i>
+                            View Certificate
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Devendra Nandurkar. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
