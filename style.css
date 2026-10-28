@@ -2748,8 +2748,13 @@ body.light-mode .locked-card {
         align-items: center;
     }
 
-    .hero-visual {
-        display: none;
+   .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 30px auto 50px;
+    overflow: visible;
     }
 
     .scroll-down {
@@ -4333,4 +4338,54 @@ body.light-mode .project-footer {
 body.light-mode ::selection {
     background: #DCC18B;
     color: #211B10;
+}
+/* =========================
+   MOBILE PROFILE CARD FIX
+========================= */
+
+@media (max-width: 850px) {
+    .profile-card {
+        width: min(280px, 75vw);
+        height: min(280px, 75vw);
+        flex-shrink: 0;
+    }
+
+    .profile-circle {
+        width: 150px;
+        height: 150px;
+        font-size: 4rem;
+    }
+
+    .card-python {
+        top: 15px;
+        left: -10px;
+    }
+
+    .card-sql {
+        bottom: 20px;
+        right: -10px;
+    }
+
+    .card-data {
+        top: 45%;
+        right: -15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .profile-card {
+        width: 240px;
+        height: 240px;
+    }
+
+    .profile-circle {
+        width: 125px;
+        height: 125px;
+        font-size: 3.5rem;
+    }
+
+    .floating-card {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
 }
