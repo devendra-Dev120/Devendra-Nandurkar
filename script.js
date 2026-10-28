@@ -190,26 +190,35 @@ window.addEventListener("scroll", updateActiveNavigation);
 window.addEventListener("resize", updateActiveNavigation);
 window.addEventListener("load", updateActiveNavigation);
 
+/* =========================
+   VIEW MORE CERTIFICATES
+========================= */
+
 const viewMoreBtn = document.getElementById("viewMoreCertificatesBtn");
 const moreCertificates = document.getElementById("moreCertificates");
 
-viewMoreBtn.addEventListener("click", function () {
-    const isExpanded = viewMoreBtn.getAttribute("aria-expanded") === "true";
+if (viewMoreBtn && moreCertificates) {
+    viewMoreBtn.addEventListener("click", function () {
+        const isExpanded =
+            viewMoreBtn.getAttribute("aria-expanded") === "true";
 
-    moreCertificates.hidden = isExpanded;
+        moreCertificates.hidden = isExpanded;
+        viewMoreBtn.setAttribute("aria-expanded", String(!isExpanded));
 
-    viewMoreBtn.setAttribute("aria-expanded", String(!isExpanded));
+        const label = viewMoreBtn.querySelector("span");
+        if (label) {
+            label.textContent = isExpanded
+                ? "View More Certificates"
+                : "Show Less";
+        }
 
-    viewMoreBtn.querySelector("span").textContent = isExpanded
-        ? "View More Certificates"
-        : "Show Less";
-
-    viewMoreBtn.querySelector(".fa-chevron-down, .fa-chevron-up")
-        ?.classList.toggle("fa-chevron-down", isExpanded);
-
-    viewMoreBtn.querySelector(".fa-chevron-down, .fa-chevron-up")
-        ?.classList.toggle("fa-chevron-up", !isExpanded);
-});
+        const icon = viewMoreBtn.querySelector("i");
+        if (icon) {
+            icon.classList.toggle("fa-chevron-down", isExpanded);
+            icon.classList.toggle("fa-chevron-up", !isExpanded);
+        }
+    });
+}
 
 
 /* =========================
