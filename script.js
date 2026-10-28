@@ -228,7 +228,7 @@ if (contactForm) {
         const subject = document.getElementById("subject").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        const recipient = "work.sujaltarkas@gmail.com";
+        const recipient = "devendranandurkar12@gmail.com";
         const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
 
         const isAndroid = /Android/i.test(navigator.userAgent);
