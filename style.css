@@ -50,7 +50,7 @@ button {
 ========================= */
 
 .container {
-    width: min(1450px, 90%);
+    width: min(150px, 90%);
     margin: auto;
 }
 
