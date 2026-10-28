@@ -293,7 +293,7 @@ button {
 
     position: relative;
 
-    display: flex;
+    display: grid;
     place-items: center;
 
     border-radius: 50%;
@@ -2735,43 +2735,22 @@ body.light-mode .locked-card {
     }
 
     .hero-container {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    align-items: center;
-    gap: 30px;
-    text-align: center;
-    padding-top: 50px;
-}
+        grid-template-columns: 1fr;
 
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 0;
-}
+        text-align: center;
 
-.hero-visual {
-    display: flex !important;
-    position: relative;
-    visibility: visible;
-    opacity: 1;
-    width: 100%;
-    min-width: 0;
-    min-height: 280px;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 40px;
-    overflow: visible;
-}
+        padding-top: 50px;
+    }
 
-.profile-card {
-    display: grid !important;
-    position: relative;
-    width: 280px;
-    height: 280px;
-    flex-shrink: 0;
-    margin: 0 auto;
-}
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-visual {
+        display: none;
+    }
 
     .scroll-down {
         display: none;
@@ -4354,66 +4333,4 @@ body.light-mode .project-footer {
 body.light-mode ::selection {
     background: #DCC18B;
     color: #211B10;
-}
-
-/* SHOW PROFILE CARD ON MOBILE ONLY */
-@media screen and (max-width: 850px) {
-    .hero-visual {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative;
-        width: 100%;
-        min-height: 300px;
-        justify-content: center;
-        align-items: center;
-        margin: 30px auto 40px;
-        overflow: visible;
-    }
-
-    .profile-card {
-        display: grid !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative;
-        width: 280px;
-        height: 280px;
-        flex-shrink: 0;
-        margin: 0 auto;
-    }
-
-    .profile-circle {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: 150px;
-        height: 150px;
-    }
-
-    .card-python {
-        top: 15px;
-        left: -5px;
-    }
-
-    .card-sql {
-        bottom: 20px;
-        right: -5px;
-    }
-
-    .card-data {
-        top: 45%;
-        right: -10px;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .profile-card {
-        width: 240px;
-        height: 240px;
-    }
-
-    .profile-circle {
-        width: 125px;
-        height: 125px;
-    }
 }
