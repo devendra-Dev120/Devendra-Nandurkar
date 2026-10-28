@@ -293,7 +293,7 @@ button {
 
     position: relative;
 
-    display: grid;
+    display: flex;
     place-items: center;
 
     border-radius: 50%;
@@ -2765,7 +2765,7 @@ body.light-mode .locked-card {
 }
 
 .profile-card {
-    display: flex !important;
+    display: grid !important;
     position: relative;
     width: 280px;
     height: 280px;
