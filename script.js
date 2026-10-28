@@ -133,6 +133,7 @@ function updateActiveNavigation() {
         "about",
         window.innerWidth <= 768 ? "skills-mobile" : "skills",
         "projects",
+        "certificates",
         "contact"
     ];
 
