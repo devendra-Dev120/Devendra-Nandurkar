@@ -131,7 +131,7 @@ function updateActiveNavigation() {
     const sectionIds = [
         "home",
         "about",
-        window.innerWidth <= 768 ? "skills-mobile" : "skills",
+        "skills",
         "projects",
         "certificates",
         "contact"
